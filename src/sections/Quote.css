@@ -1,0 +1,91 @@
+.quote {
+  position: relative;
+  background:
+    radial-gradient(60% 100% at 50% 50%, #201d19 0%, #0d0c0a 100%);
+  color: var(--washi);
+  padding-block: clamp(5rem, 10vw, 8rem);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.quote__mist {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(30% 40% at 20% 40%, rgba(184, 155, 94, 0.06), transparent 60%),
+    radial-gradient(25% 40% at 85% 60%, rgba(184, 155, 94, 0.05), transparent 60%);
+  z-index: -1;
+}
+
+.quote__flecks {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1px 1px at 15% 30%, rgba(216, 191, 135, 0.5) 50%, transparent 51%),
+    radial-gradient(1px 1px at 78% 22%, rgba(216, 191, 135, 0.4) 50%, transparent 51%),
+    radial-gradient(1px 1px at 55% 70%, rgba(216, 191, 135, 0.35) 50%, transparent 51%),
+    radial-gradient(1px 1px at 88% 80%, rgba(216, 191, 135, 0.4) 50%, transparent 51%),
+    radial-gradient(1px 1px at 25% 85%, rgba(216, 191, 135, 0.35) 50%, transparent 51%);
+  z-index: -1;
+}
+
+.quote__inner {
+  display: grid;
+  place-items: center;
+  gap: 1.8rem;
+  text-align: center;
+  position: relative;
+}
+
+.quote__title {
+  display: flex;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  font-family: var(--font-mincho);
+  font-weight: 500;
+  font-size: clamp(3rem, 7vw, 5rem);
+  letter-spacing: 0.1em;
+}
+
+.quote__char {
+  display: inline-block;
+}
+
+.quote__caption {
+  font-family: var(--font-mincho);
+  font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+  letter-spacing: 0.5em;
+  color: rgba(245, 241, 232, 0.6);
+}
+
+.quote__seal {
+  position: absolute;
+  right: 4%;
+  top: 20%;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  background: var(--shu);
+  color: var(--washi);
+  font-family: var(--font-mincho);
+  font-size: 1rem;
+  transform: rotate(-6deg);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 700px) {
+  .quote__title {
+    gap: 0.7rem;
+  }
+  .quote__caption {
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+  }
+  .quote__seal {
+    top: 10%;
+    right: 6%;
+    width: 30px;
+    height: 30px;
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,92 @@
+.styles {
+  background: var(--washi);
+}
+
+.styles__head {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.styles h2 {
+  font-size: var(--fs-h2);
+  letter-spacing: 0.2em;
+}
+
+.styles__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.style {
+  display: grid;
+  gap: 1.2rem;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+  background: linear-gradient(180deg, #efe6cc, #e6dcbe);
+  border: 1px solid var(--line);
+  position: relative;
+  isolation: isolate;
+}
+
+.style__paper {
+  position: relative;
+  aspect-ratio: 4 / 2.4;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.style__ink {
+  font-family: var(--font-mincho);
+  font-weight: 800;
+  font-size: clamp(4rem, 8vw, 6rem);
+  color: var(--sumi);
+  letter-spacing: 0.02em;
+  transform: rotate(-2deg);
+  text-shadow:
+    2px 3px 0 rgba(22, 22, 22, 0.06),
+    -1px 1px 6px rgba(22, 22, 22, 0.1);
+}
+
+.style__splatter {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(3px 3px at 15% 30%, rgba(22, 22, 22, 0.35) 40%, transparent 41%),
+    radial-gradient(2px 2px at 78% 22%, rgba(22, 22, 22, 0.3) 40%, transparent 41%),
+    radial-gradient(4px 4px at 82% 78%, rgba(22, 22, 22, 0.28) 40%, transparent 41%),
+    radial-gradient(2px 2px at 25% 85%, rgba(22, 22, 22, 0.35) 40%, transparent 41%),
+    radial-gradient(3px 3px at 50% 12%, rgba(22, 22, 22, 0.25) 40%, transparent 41%),
+    radial-gradient(2px 2px at 65% 55%, rgba(22, 22, 22, 0.3) 40%, transparent 41%);
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: multiply;
+}
+
+.style__meta {
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--line-strong);
+}
+
+.style__meta p {
+  color: var(--text);
+  font-size: 0.85rem;
+  line-height: 1.9;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 900px) {
+  .styles__grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .styles__head {
+    margin-bottom: 2rem;
+  }
+  .style {
+    padding: 1.2rem;
+  }
+  .style__ink {
+    font-size: clamp(3.5rem, 20vw, 5rem);
+  }
+}

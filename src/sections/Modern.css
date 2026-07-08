@@ -1,0 +1,76 @@
+.modern {
+  padding: 0;
+  background: var(--sumi);
+  color: var(--washi);
+}
+
+.modern__grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  min-height: 70vh;
+}
+
+.modern__art {
+  position: relative;
+  overflow: hidden;
+  background: #0d0c0a;
+}
+
+.modern__art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.modern__wash {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 60%, rgba(22, 22, 22, 0.85));
+}
+
+.modern__text {
+  padding: clamp(3rem, 8vw, 6rem) clamp(2rem, 6vw, 5rem);
+  display: grid;
+  align-content: center;
+  gap: 1.8rem;
+  background: var(--sumi);
+}
+
+.modern__text h2 {
+  font-size: var(--fs-h2);
+  letter-spacing: 0.2em;
+  color: var(--washi);
+}
+
+.modern__lead {
+  font-family: var(--font-mincho);
+  font-size: clamp(1.1rem, 1.7vw, 1.35rem);
+  line-height: 1.9;
+  color: var(--washi);
+}
+
+.modern__body {
+  color: rgba(245, 241, 232, 0.65);
+  font-size: 0.9rem;
+  line-height: 2;
+}
+
+@media (max-width: 900px) {
+  .modern__grid {
+    grid-template-columns: 1fr;
+  }
+  .modern__art {
+    aspect-ratio: 4 / 3;
+  }
+  .modern__wash {
+    background: linear-gradient(180deg, transparent 60%, rgba(22, 22, 22, 0.85));
+  }
+  .modern__text {
+    padding: 2.5rem 1.5rem 3rem;
+    gap: 1.3rem;
+  }
+  .modern__lead {
+    font-size: 1.15rem;
+  }
+}

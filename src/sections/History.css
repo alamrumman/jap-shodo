@@ -1,0 +1,231 @@
+.history {
+  background: var(--washi);
+}
+
+.history__grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: start;
+}
+
+.history h2 {
+  font-size: var(--fs-h2);
+  letter-spacing: 0.15em;
+  margin-bottom: 2.5rem;
+}
+
+.history__timeline {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  padding-top: 1.8rem;
+  margin-bottom: 2.5rem;
+}
+
+.history__line {
+  position: absolute;
+  top: 6px;
+  left: 4%;
+  right: 4%;
+  height: 1px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.history__line-fill {
+  display: block;
+  height: 100%;
+  width: 100%;
+  background: var(--sumi);
+  transform: scaleX(var(--fill, 0));
+  transform-origin: 0 50%;
+  transition: transform 800ms var(--ease-brush);
+}
+
+.history__item {
+  position: relative;
+  display: grid;
+  gap: 0.4rem;
+  padding: 1.2rem 0 0;
+  text-align: left;
+  color: var(--text-mute);
+  cursor: pointer;
+  transition: color var(--dur-med) var(--ease-brush);
+}
+
+.history__item:hover,
+.history__item.is-active {
+  color: var(--text);
+}
+
+.history__dot {
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--washi);
+  border: 1px solid var(--line-strong);
+  transition: background var(--dur-med) var(--ease-brush),
+    border-color var(--dur-med) var(--ease-brush),
+    transform var(--dur-med) var(--ease-brush);
+}
+
+.history__item:hover .history__dot {
+  border-color: var(--sumi);
+}
+
+.history__item.is-active .history__dot {
+  background: var(--shu);
+  border-color: var(--shu);
+  transform: scale(1.35);
+  box-shadow: 0 0 0 5px rgba(155, 44, 44, 0.15);
+}
+
+.history__year {
+  font-family: var(--font-mincho);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  color: var(--text-mute);
+}
+
+.history__era {
+  font-family: var(--font-mincho);
+  font-size: clamp(1.05rem, 1.4vw, 1.25rem);
+  letter-spacing: 0.15em;
+  color: inherit;
+}
+
+.history__body {
+  font-size: 0.78rem;
+  line-height: 1.8;
+  color: var(--text-mute);
+}
+
+.history__detail {
+  padding: 1.6rem 1.8rem;
+  background: var(--washi-2);
+  border-left: 2px solid var(--shu);
+  display: grid;
+  gap: 0.9rem;
+  animation: detail-in 500ms var(--ease-brush);
+}
+
+@keyframes detail-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.history__detail-tag {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-mincho);
+}
+
+.history__romaji {
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  color: var(--shu);
+  text-transform: uppercase;
+}
+
+.history__year-strong {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--text-mute);
+  padding-left: 1rem;
+  border-left: 1px solid var(--line);
+}
+
+.history__detail p {
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.95;
+}
+
+.history__scene {
+  position: relative;
+  aspect-ratio: 4 / 3.4;
+  background: linear-gradient(180deg, var(--washi-2), var(--washi));
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.history__scene-era {
+  position: absolute;
+  right: 1.2rem;
+  bottom: 1rem;
+  font-family: var(--font-mincho);
+  font-weight: 800;
+  font-size: 2.2rem;
+  letter-spacing: 0.15em;
+  color: var(--sumi);
+  opacity: 0.85;
+  animation: detail-in 500ms var(--ease-brush);
+}
+
+@media (max-width: 900px) {
+  .history__grid {
+    grid-template-columns: 1fr;
+  }
+  .history__scene {
+    order: -1;
+    aspect-ratio: 4 / 2.5;
+  }
+  .history__timeline {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+    padding-left: 1.5rem;
+    padding-top: 0;
+    margin-bottom: 1.8rem;
+  }
+  .history__line {
+    top: 0;
+    bottom: 0;
+    left: 6px;
+    right: auto;
+    width: 1px;
+    height: auto;
+  }
+  .history__line-fill {
+    width: 100%;
+    height: 100%;
+    transform: scaleY(var(--fill, 0));
+    transform-origin: 50% 0;
+  }
+  .history__item {
+    padding: 0.7rem 0 0.7rem 1.2rem;
+    gap: 0.3rem;
+  }
+  .history__dot {
+    top: 12px;
+    left: -1.3rem;
+  }
+  .history__body {
+    font-size: 0.82rem;
+  }
+  .history__detail {
+    padding: 1.2rem 1.3rem;
+  }
+  .history__detail-tag {
+    gap: 0.7rem;
+  }
+  .history__year-strong {
+    padding-left: 0.7rem;
+  }
+  .history__scene-era {
+    font-size: 1.8rem;
+    right: 1rem;
+    bottom: 0.7rem;
+  }
+}

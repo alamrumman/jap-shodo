@@ -1,0 +1,175 @@
+.ctas {
+  padding: 0;
+  background: var(--washi-2);
+}
+
+.ctas__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.cta {
+  position: relative;
+  min-height: 320px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+}
+
+.cta__body {
+  padding: clamp(2rem, 4vw, 3.5rem);
+  display: grid;
+  align-content: center;
+  gap: 1rem;
+}
+
+.cta__body h2 {
+  font-size: clamp(1.6rem, 2.5vw, 2.1rem);
+  letter-spacing: 0.2em;
+}
+
+.cta__body p {
+  color: var(--text-mute);
+  font-size: 0.9rem;
+  line-height: 1.9;
+}
+
+.cta--light {
+  background: var(--washi);
+  color: var(--text);
+}
+
+.cta--dark {
+  background: var(--sumi);
+  color: var(--washi);
+}
+
+.cta--dark p {
+  color: rgba(245, 241, 232, 0.7);
+}
+
+.cta__art {
+  position: relative;
+  overflow: hidden;
+}
+
+.cta__art--about {
+  background:
+    radial-gradient(70% 100% at 50% 50%, #d8ccae, #b3a486);
+}
+
+.cta__art--about .cta__lantern {
+  position: absolute;
+  right: 22%;
+  top: 20%;
+  width: 60px;
+  height: 90px;
+  background:
+    linear-gradient(180deg, #7a2222, var(--shu) 40%, #7a2222 100%);
+  border-radius: 30px;
+  box-shadow:
+    inset 0 0 20px rgba(0, 0, 0, 0.35),
+    0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.cta__art--about .cta__lantern::before {
+  content: "書";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--washi);
+  font-family: var(--font-mincho);
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.cta__art--contact {
+  background:
+    radial-gradient(60% 100% at 50% 50%, #201d19, #0a0908);
+}
+
+.cta__art--contact .cta__inkstone {
+  position: absolute;
+  right: 22%;
+  bottom: 25%;
+  width: 130px;
+  height: 60px;
+  background: linear-gradient(180deg, #1a1815 20%, #050505 100%);
+  border-radius: 12px;
+  box-shadow:
+    inset 0 4px 12px rgba(255, 255, 255, 0.05),
+    0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.cta__art--contact .cta__inkstone::after {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  background: radial-gradient(60% 100% at 40% 40%, rgba(255, 255, 255, 0.08), transparent 70%);
+  border-radius: 8px;
+}
+
+.cta__art--contact .cta__brush {
+  position: absolute;
+  right: 15%;
+  top: 15%;
+  width: 5px;
+  height: 130px;
+  background: linear-gradient(180deg, #8b6f4a 0%, #5a4530 60%, #2a1e14 100%);
+  transform: rotate(15deg);
+  border-radius: 3px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+.cta__art--contact .cta__brush::before {
+  content: "";
+  position: absolute;
+  bottom: -18px;
+  left: -3px;
+  width: 11px;
+  height: 30px;
+  background: linear-gradient(180deg, #3a2a1c, #0a0a0a);
+  border-radius: 50% 50% 45% 45% / 20% 20% 80% 80%;
+}
+
+@media (max-width: 900px) {
+  .ctas__grid {
+    grid-template-columns: 1fr;
+  }
+  .cta {
+    grid-template-columns: 1fr;
+  }
+  .cta__art {
+    min-height: 180px;
+    order: -1;
+  }
+  .cta__body {
+    padding: 2rem 1.5rem 2.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .cta__body h2 {
+    font-size: 1.5rem;
+  }
+  .cta__art--about .cta__lantern {
+    right: 15%;
+    top: 15%;
+    width: 50px;
+    height: 74px;
+  }
+  .cta__art--about .cta__lantern::before {
+    font-size: 1.5rem;
+  }
+  .cta__art--contact .cta__inkstone {
+    right: 15%;
+    width: 100px;
+    height: 46px;
+  }
+  .cta__art--contact .cta__brush {
+    right: 10%;
+    top: 10%;
+    height: 100px;
+  }
+}

@@ -1,0 +1,65 @@
+:root {
+  /* Color — traditional Japanese palette */
+  --washi: #f5f1e8;
+  --washi-2: #ece5d3;
+  --washi-3: #e2d9be;
+  --sumi: #161616;
+  --sumi-soft: #1f1d1a;
+  --sumi-ink: #2a2621;
+  --shu: #9b2c2c;
+  --shu-deep: #7a2222;
+  --kin: #b89b5e;
+  --kin-soft: #d8bf87;
+  --text: #1a1815;
+  --text-mute: #6b625a;
+  --text-inverse: #f5f1e8;
+  --line: rgba(26, 24, 21, 0.15);
+  --line-strong: rgba(26, 24, 21, 0.35);
+  --line-dark: rgba(245, 241, 232, 0.15);
+
+  /* Typography */
+  --font-mincho: "Shippori Mincho", "Noto Serif JP", "Hiragino Mincho ProN",
+    "Yu Mincho", serif;
+  --font-serif: "Noto Serif JP", "Shippori Mincho", "Hiragino Mincho ProN",
+    serif;
+  --font-sans: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", system-ui,
+    sans-serif;
+
+  /* Type scale — desktop */
+  --fs-hero: clamp(4rem, 10vw, 8rem);
+  --fs-hero-char: clamp(8rem, 18vw, 15rem);
+  --fs-h1: clamp(2.5rem, 5vw, 4rem);
+  --fs-h2: clamp(2rem, 4vw, 3.25rem);
+  --fs-h3: clamp(1.4rem, 2.2vw, 1.75rem);
+  --fs-body: 1.05rem;
+  --fs-small: 0.875rem;
+  --fs-mini: 0.75rem;
+
+  /* Layout */
+  --container: 1280px;
+  --pad-x: clamp(1.25rem, 5vw, 7.5rem);
+  --section-y: clamp(3rem, 10vw, 8rem);
+  --gap: clamp(1rem, 2vw, 2rem);
+
+  /* Motion */
+  --ease-brush: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-ink: cubic-bezier(0.7, 0, 0.3, 1);
+  --dur-fast: 300ms;
+  --dur-med: 500ms;
+  --dur-slow: 900ms;
+
+  /* Elevation */
+  --shadow-paper: 0 20px 60px -30px rgba(26, 24, 21, 0.35);
+  --shadow-scroll: 0 30px 80px -40px rgba(26, 24, 21, 0.55);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

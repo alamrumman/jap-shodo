@@ -1,0 +1,222 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  padding: 0;
+  overflow: hidden;
+  color: var(--washi);
+  isolation: isolate;
+}
+
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.hero__bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(22,22,22,.35) 0%, rgba(22,22,22,.15) 40%, rgba(22,22,22,.6) 100%),
+    radial-gradient(70% 60% at 50% 40%, transparent 30%, rgba(22,22,22,.4) 100%);
+  z-index: -1;
+}
+
+.hero__content {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  justify-items: center;
+  padding-top: 6rem;
+  padding-bottom: 2.5rem;
+  text-align: center;
+}
+
+.hero__char {
+  font-family: var(--font-mincho);
+  font-weight: 800;
+  font-size: var(--fs-hero-char);
+  line-height: 0.9;
+  color: var(--washi);
+  text-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  animation: hero-char-in 1400ms var(--ease-brush) 300ms both;
+  letter-spacing: -0.02em;
+}
+
+@keyframes hero-char-in {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+
+.hero__title {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  animation: hero-text-in 900ms var(--ease-brush) 700ms both;
+}
+
+@keyframes hero-text-in {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.hero__jp {
+  font-family: var(--font-mincho);
+  font-weight: 500;
+  font-size: clamp(1.5rem, 3vw, 2.3rem);
+  letter-spacing: 0.3em;
+}
+
+.hero__sub {
+  font-family: var(--font-mincho);
+  font-weight: 400;
+  font-size: clamp(0.85rem, 1.3vw, 1rem);
+  letter-spacing: 0.4em;
+  color: rgba(245, 241, 232, 0.75);
+  animation: hero-sub-in 900ms var(--ease-brush) 1100ms both;
+}
+
+@keyframes hero-sub-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.hero__scroll {
+  display: grid;
+  justify-items: center;
+  gap: 0.8rem;
+  font-family: var(--font-mincho);
+  font-size: 0.7rem;
+  letter-spacing: 0.5em;
+  color: rgba(245, 241, 232, 0.7);
+  animation: hero-sub-in 900ms var(--ease-brush) 1400ms both;
+}
+
+.hero__line {
+  width: 1px;
+  background: rgba(245, 241, 232, 0.7);
+  animation: hero-line 1400ms var(--ease-brush) 1700ms both;
+}
+
+@keyframes hero-line {
+  from {
+    height: 0;
+  }
+  to {
+    height: 40px;
+  }
+}
+
+/* Hanging scroll (kakejiku) on the right */
+.hero__scroll-side {
+  position: absolute;
+  right: clamp(2rem, 8vw, 6rem);
+  top: 15%;
+  width: 90px;
+  height: 45vh;
+  background: linear-gradient(180deg, rgba(245, 241, 232, 0.9), rgba(215, 200, 170, 0.8));
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  padding: 1rem 0.5rem;
+  z-index: -1;
+  animation: hero-scroll-in 1400ms var(--ease-brush) 600ms both;
+}
+
+.hero__scroll-side::before,
+.hero__scroll-side::after {
+  content: "";
+  position: absolute;
+  left: -8px;
+  right: -8px;
+  height: 12px;
+  background: var(--sumi);
+  border-radius: 2px;
+}
+.hero__scroll-side::before {
+  top: -8px;
+}
+.hero__scroll-side::after {
+  bottom: -8px;
+}
+
+.hero__scroll-inner {
+  height: 100%;
+  display: grid;
+  place-items: center;
+  color: var(--sumi);
+  font-family: var(--font-mincho);
+  writing-mode: vertical-rl;
+  font-size: 1.4rem;
+  letter-spacing: 0.3em;
+  font-weight: 700;
+}
+
+@keyframes hero-scroll-in {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero__scroll-side {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero {
+    min-height: 92vh;
+    min-height: 92dvh;
+  }
+  .hero__content {
+    min-height: 92vh;
+    min-height: 92dvh;
+    padding-top: 5rem;
+    padding-bottom: 2rem;
+  }
+  .hero__char {
+    font-size: clamp(7rem, 42vw, 12rem);
+  }
+  .hero__jp {
+    font-size: clamp(1.2rem, 5.5vw, 1.8rem);
+    letter-spacing: 0.25em;
+  }
+  .hero__sub {
+    letter-spacing: 0.3em;
+  }
+  .hero__overlay {
+    background:
+      linear-gradient(180deg, rgba(22,22,22,.45) 0%, rgba(22,22,22,.25) 40%, rgba(22,22,22,.75) 100%);
+  }
+}
