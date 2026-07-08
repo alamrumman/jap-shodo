@@ -104,7 +104,6 @@ section {
   transform: translateY(35px);
   transition: opacity var(--dur-slow) var(--ease-brush),
     transform var(--dur-slow) var(--ease-brush);
-  will-change: opacity, transform;
 }
 
 .reveal.is-visible {

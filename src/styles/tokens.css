@@ -17,12 +17,15 @@
   --line-strong: rgba(26, 24, 21, 0.35);
   --line-dark: rgba(245, 241, 232, 0.15);
 
-  /* Typography */
-  --font-mincho: "Shippori Mincho", "Hiragino Mincho ProN", "Yu Mincho",
-    "MS Mincho", serif;
-  --font-serif: "Shippori Mincho", "Hiragino Mincho ProN", serif;
-  --font-sans: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", system-ui,
-    sans-serif;
+  /* Typography — system JP fonts (zero download, premium look on all OSes)
+     macOS/iOS → Hiragino, Windows → Yu Mincho/Gothic, Linux/Android → Noto CJK */
+  --font-mincho: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho",
+    "Shippori Mincho", "Noto Serif CJK JP", "Noto Serif JP", "MS Mincho",
+    serif;
+  --font-serif: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif CJK JP",
+    serif;
+  --font-sans: "Hiragino Sans", "Yu Gothic", "YuGothic", "Noto Sans CJK JP",
+    "Noto Sans JP", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* Type scale — desktop */
   --fs-hero: clamp(4rem, 10vw, 8rem);
