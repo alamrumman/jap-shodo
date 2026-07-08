@@ -56,7 +56,7 @@
 
 .intro__ink {
   font-family: var(--font-mincho);
-  font-weight: 800;
+  font-weight: 700;
   font-size: clamp(12rem, 30vw, 24rem);
   color: var(--sumi);
   line-height: 0.85;

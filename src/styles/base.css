@@ -79,6 +79,13 @@ ul {
   color: var(--washi);
 }
 
+/* Performance — skip render for off-screen sections
+   (skip on Hero and the section right after so LCP isn't affected) */
+section:not(.hero):not(.intro):not(.ph) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
+
 /* Layout primitives */
 .container {
   max-width: var(--container);

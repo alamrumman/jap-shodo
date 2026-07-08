@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import "./Gallery.css";
 
 const items = [
-  { img: "/images/img1.png", label: "筆勢", tall: false },
-  { img: "/images/img2.png", label: "静物", tall: true },
-  { img: "/images/img3.png", label: "墨迹", tall: false },
-  { img: "/images/img4.png", label: "掛軸", tall: false },
-  { img: "/images/img5.png", label: "余白", tall: true },
-  { img: "/images/img1.png", label: "文字", tall: false },
-  { img: "/images/img3.png", label: "作品", tall: false },
+  { img: "/images/img1.webp", label: "筆勢", tall: false },
+  { img: "/images/img2.webp", label: "静物", tall: true },
+  { img: "/images/img3.webp", label: "墨迹", tall: false },
+  { img: "/images/img4.webp", label: "掛軸", tall: false },
+  { img: "/images/img5.webp", label: "余白", tall: true },
+  { img: "/images/img1.webp", label: "文字", tall: false },
+  { img: "/images/img3.webp", label: "作品", tall: false },
 ];
 
 export default function Gallery() {
@@ -67,6 +67,8 @@ export default function Gallery() {
                   alt={it.label}
                   loading="lazy"
                   decoding="async"
+                  width="600"
+                  height="450"
                 />
                 <span className="gitem__overlay">
                   <span className="gitem__label">{it.label}</span>

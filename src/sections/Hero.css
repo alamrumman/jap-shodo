@@ -43,7 +43,7 @@
 
 .hero__char {
   font-family: var(--font-mincho);
-  font-weight: 800;
+  font-weight: 700;
   font-size: var(--fs-hero-char);
   line-height: 0.9;
   color: var(--washi);

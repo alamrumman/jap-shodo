@@ -38,7 +38,7 @@
 
 .style__ink {
   font-family: var(--font-mincho);
-  font-weight: 800;
+  font-weight: 700;
   font-size: clamp(4rem, 8vw, 6rem);
   color: var(--sumi);
   letter-spacing: 0.02em;

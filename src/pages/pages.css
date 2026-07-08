@@ -103,7 +103,7 @@
   display: grid;
   place-items: center;
   font-family: var(--font-mincho);
-  font-weight: 800;
+  font-weight: 700;
   font-size: clamp(10rem, 24vw, 20rem);
   color: var(--sumi);
   line-height: 0.85;
@@ -181,7 +181,7 @@
 }
 .about__mission-mark {
   font-family: var(--font-mincho);
-  font-weight: 800;
+  font-weight: 700;
   font-size: clamp(4rem, 8vw, 6rem);
   color: var(--shu);
   line-height: 1;
@@ -331,7 +331,7 @@
   right: -3rem;
   top: 30%;
   font-family: var(--font-mincho);
-  font-weight: 800;
+  font-weight: 700;
   color: rgba(22, 22, 22, 0.04);
   font-size: clamp(14rem, 30vw, 26rem);
   line-height: 1;
@@ -743,7 +743,7 @@
 }
 .content__art-kanji {
   font-family: var(--font-mincho);
-  font-weight: 800;
+  font-weight: 700;
   font-size: clamp(9rem, 22vw, 18rem);
   color: var(--sumi);
   transform: rotate(-3deg);

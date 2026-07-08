@@ -6,10 +6,12 @@ export default function Modern() {
       <div className="modern__grid">
         <div className="modern__art reveal-left">
           <img
-            src="/images/img5.png"
+            src="/images/img5.webp"
             alt=""
             loading="lazy"
             decoding="async"
+            width="800"
+            height="600"
           />
           <div className="modern__wash" aria-hidden="true" />
         </div>

@@ -5,25 +5,25 @@ const tools = [
     name: "筆",
     romaji: "Fude",
     body: "繊細な生命を生み出す大切な道具。\n毛の種類や形で表現が変わる。",
-    img: "/images/img1.png",
+    img: "/images/img1.webp",
   },
   {
     name: "墨",
     romaji: "Sumi",
     body: "深い黒を生み出す墨。\n香りや質感も墨の魅力のひとつ。",
-    img: "/images/img2.png",
+    img: "/images/img2.webp",
   },
   {
     name: "硯",
     romaji: "Suzuri",
     body: "墨を磨り、筆に墨を含ませる。\n静寂の中で心を整える道具。",
-    img: "/images/img3.png",
+    img: "/images/img3.webp",
   },
   {
     name: "和紙",
     romaji: "Washi",
     body: "墨のにじみやかすれを受け止める、\n日本の伝統的な紙。",
-    img: "/images/img4.png",
+    img: "/images/img4.webp",
   },
 ];
 
@@ -57,6 +57,8 @@ export default function Tools() {
                   alt={`${t.name} (${t.romaji})`}
                   loading="lazy"
                   decoding="async"
+                  width="600"
+                  height="450"
                 />
                 <span className="tool__index" aria-hidden="true">
                   0{i + 1}

@@ -2,19 +2,53 @@
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 50;
+  color: var(--text);
   transition: background var(--dur-med) var(--ease-brush),
     backdrop-filter var(--dur-med) var(--ease-brush),
     border-color var(--dur-med) var(--ease-brush),
-    box-shadow var(--dur-med) var(--ease-brush);
+    box-shadow var(--dur-med) var(--ease-brush),
+    color var(--dur-med) var(--ease-brush);
   border-bottom: 1px solid transparent;
 }
 
+/* Over the hero (home): light text + dark top scrim for legibility */
+.nav--over-hero {
+  color: var(--washi);
+}
+
+.nav--over-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(22, 22, 22, 0.55) 0%,
+    rgba(22, 22, 22, 0.25) 60%,
+    transparent 100%
+  );
+  pointer-events: none;
+  transition: opacity var(--dur-med) var(--ease-brush);
+  z-index: -1;
+}
+
 .nav--scrolled {
+  color: var(--text);
   background: rgba(245, 241, 232, 0.88);
   backdrop-filter: blur(16px) saturate(1.2);
   -webkit-backdrop-filter: blur(16px) saturate(1.2);
   border-bottom-color: var(--line);
   box-shadow: 0 8px 30px -20px rgba(22, 22, 22, 0.25);
+}
+
+.nav--over-hero.nav--scrolled::before {
+  opacity: 0;
+}
+
+/* Inner pages get a subtle rest state so the nav is visible from the top */
+.nav--over-light:not(.nav--scrolled) {
+  background: rgba(245, 241, 232, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .nav__inner {
@@ -59,14 +93,15 @@
   font-family: var(--font-mincho);
   font-size: 1.15rem;
   letter-spacing: 0.3em;
-  color: var(--text);
+  color: currentColor;
 }
 
 .nav__brand-romaji {
   font-family: var(--font-mincho);
   font-size: 0.58rem;
   letter-spacing: 0.4em;
-  color: var(--text-mute);
+  color: currentColor;
+  opacity: 0.75;
   margin-top: 4px;
 }
 
@@ -85,7 +120,7 @@
   font-family: var(--font-mincho);
   font-size: 0.95rem;
   letter-spacing: 0.2em;
-  color: var(--text);
+  color: currentColor;
   padding: 0.4rem 0;
   overflow: hidden;
 }
@@ -184,15 +219,23 @@
   align-items: center;
   gap: 0.4rem;
   padding: 0.4rem 0.8rem;
-  border: 1px solid var(--line);
+  border: 1px solid currentColor;
   border-radius: 999px;
   font-family: var(--font-mincho);
   font-size: 0.75rem;
   letter-spacing: 0.2em;
-  transition: border-color var(--dur-fast) var(--ease-brush);
+  opacity: 0.7;
+  transition: opacity var(--dur-fast) var(--ease-brush);
   cursor: pointer;
 }
 .nav__lang:hover {
+  opacity: 1;
+}
+.nav--scrolled .nav__lang {
+  opacity: 1;
+  border-color: var(--line);
+}
+.nav--scrolled .nav__lang:hover {
   border-color: var(--line-strong);
 }
 .nav__globe {
@@ -234,7 +277,7 @@
   left: 9px;
   right: 9px;
   height: 1px;
-  background: var(--text);
+  background: currentColor;
   transition: transform var(--dur-fast) var(--ease-brush),
     opacity var(--dur-fast) var(--ease-brush),
     top var(--dur-fast) var(--ease-brush),
@@ -299,7 +342,7 @@
   right: -1rem;
   bottom: -3rem;
   font-family: var(--font-mincho);
-  font-weight: 800;
+  font-weight: 700;
   font-size: 18rem;
   color: rgba(22, 22, 22, 0.05);
   line-height: 1;

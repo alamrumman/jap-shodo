@@ -5,8 +5,10 @@ export default function Hero() {
     <section className="hero" id="hero" aria-label="ヒーロー">
       <picture className="hero__bg">
         <img
-          src="/images/hero-bg.png"
+          src="/images/hero-bg.webp"
           alt=""
+          width="1920"
+          height="1080"
           fetchPriority="high"
           decoding="async"
         />

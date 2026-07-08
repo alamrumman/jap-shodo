@@ -52,7 +52,11 @@ export default function Nav({ path, navigate }) {
   };
 
   return (
-    <header className={`nav ${scrolled ? "nav--scrolled" : ""}`}>
+    <header
+      className={`nav ${scrolled ? "nav--scrolled" : ""} ${
+        path === "/" ? "nav--over-hero" : "nav--over-light"
+      }`}
+    >
       <div className="nav__inner container">
         <a href="#/" onClick={handle("/")} className="nav__brand" aria-label="ホーム">
           <span className="nav__brand-seal" aria-hidden="true">

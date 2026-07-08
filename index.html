@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#161616" />
     <meta name="description" content="書道文化 — 日本の文字芸術と精神。書道の歴史、道具、四つの心、書体、現代の書道を巡る文化体験サイト。" />
+    <meta name="color-scheme" content="light" />
     <meta property="og:title" content="書道文化 | 日本の文字芸術と精神" />
     <meta property="og:description" content="一筆に宿る、日本の精神。書道の世界へ。" />
     <meta property="og:type" content="website" />
@@ -13,17 +14,26 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
       rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@500;700;800&display=swap"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Shippori+Mincho:wght@500;700;800&display=swap"
+      as="image"
+      href="/images/hero-bg.webp"
+      fetchpriority="high"
     />
 
-    <link rel="preload" as="image" href="/images/hero-bg.png" fetchpriority="high" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Shippori+Mincho:wght@500;700&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Shippori+Mincho:wght@500;700&display=swap"
+      />
+    </noscript>
 
     <title>書道文化 | 日本の文字芸術と精神</title>
 
