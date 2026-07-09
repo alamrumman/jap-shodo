@@ -2,11 +2,16 @@ import { useEffect, useRef, useState } from "react";
 import "./Nav.css";
 
 const links = [
-  { label: "文化", romaji: "Culture", to: "/culture" },
-  { label: "歴史", romaji: "History", to: "/history" },
-  { label: "技法", romaji: "Techniques", to: "/techniques" },
-  { label: "ギャラリー", romaji: "Gallery", to: "/gallery" },
-  { label: "私たちについて", romaji: "About", to: "/about" },
+  { label: "文化", to: "/culture" },
+  { label: "歴史", to: "/history" },
+  { label: "技法", to: "/techniques" },
+  { label: "ギャラリー", to: "/gallery" },
+  { label: "私たちについて", to: "/about" },
+];
+
+const legalLinks = [
+  { label: "プライバシーポリシー", to: "/privacy" },
+  { label: "利用規約", to: "/terms" },
 ];
 
 export default function Nav({ path, navigate }) {
@@ -20,7 +25,7 @@ export default function Nav({ path, navigate }) {
       if (raf) return;
       raf = requestAnimationFrame(() => {
         const y = window.scrollY;
-        setScrolled(y > 80);
+        setScrolled(y > 20);
         const max =
           document.documentElement.scrollHeight - window.innerHeight;
         const p = max > 0 ? Math.min(1, y / max) : 0;
@@ -52,20 +57,13 @@ export default function Nav({ path, navigate }) {
   };
 
   return (
-    <header
-      className={`nav ${scrolled ? "nav--scrolled" : ""} ${
-        path === "/" ? "nav--over-hero" : "nav--over-light"
-      }`}
-    >
+    <header className={`nav ${scrolled ? "nav--scrolled" : ""}`}>
       <div className="nav__inner container">
         <a href="#/" onClick={handle("/")} className="nav__brand" aria-label="ホーム">
           <span className="nav__brand-seal" aria-hidden="true">
             書
           </span>
-          <span className="nav__brand-text">
-            <span className="nav__brand-kanji">書道文化</span>
-            <span className="nav__brand-romaji">SHODŌ BUNKA</span>
-          </span>
+          <span className="nav__brand-kanji">書道文化</span>
         </a>
 
         <nav className="nav__links" aria-label="メインナビゲーション">
@@ -76,9 +74,8 @@ export default function Nav({ path, navigate }) {
                   href={`#${l.to}`}
                   onClick={handle(l.to)}
                   className={path === l.to ? "is-active" : ""}
-                  data-romaji={l.romaji}
                 >
-                  <span>{l.label}</span>
+                  {l.label}
                 </a>
               </li>
             ))}
@@ -94,18 +91,12 @@ export default function Nav({ path, navigate }) {
             <span className="nav__cta-dot" aria-hidden="true" />
             お問い合わせ
           </a>
-          <span className="nav__lang" aria-label="言語">
-            <span className="nav__globe" aria-hidden="true">
-              ◐
-            </span>
-            JP
-          </span>
         </div>
 
         <button
           type="button"
           className={`nav__burger ${open ? "is-open" : ""}`}
-          aria-label="メニュー"
+          aria-label={open ? "メニューを閉じる" : "メニューを開く"}
           aria-expanded={open}
           onClick={() => setOpen((o) => !o)}
         >
@@ -119,42 +110,88 @@ export default function Nav({ path, navigate }) {
         <span ref={progressRef} />
       </div>
 
+      {/* Mobile drawer */}
       <div
-        className={`nav__drawer ${open ? "is-open" : ""}`}
+        className={`drawer ${open ? "drawer--open" : ""}`}
         aria-hidden={!open}
       >
-        <div className="nav__drawer-mark" aria-hidden="true">
+        <div className="drawer__watermark" aria-hidden="true">
           書
         </div>
-        <ol className="nav__drawer-list">
-          {links.map((l, i) => (
-            <li
-              key={l.to}
-              style={{ transitionDelay: open ? `${i * 60 + 100}ms` : "0ms" }}
-            >
-              <a href={`#${l.to}`} onClick={handle(l.to)}>
-                <span className="nav__drawer-num">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <span className="nav__drawer-jp">{l.label}</span>
-                <span className="nav__drawer-en">{l.romaji}</span>
-              </a>
-            </li>
-          ))}
-          <li
-            style={{
-              transitionDelay: open ? `${links.length * 60 + 100}ms` : "0ms",
-            }}
+        <div className="drawer__flecks" aria-hidden="true" />
+
+        <div className="drawer__inner">
+          <div className="drawer__head">
+            <div className="drawer__brand">
+              <span className="drawer__seal" aria-hidden="true">書</span>
+              <div>
+                <div className="drawer__brand-jp">書道文化</div>
+                <div className="drawer__eyebrow">目次</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="drawer__quote" aria-hidden="true">
+            <span>一</span>
+            <span>筆</span>
+            <span>一</span>
+            <span>心</span>
+          </div>
+
+          <nav aria-label="ドロワーメニュー">
+            <ol className="drawer__list">
+              {links.map((l, i) => (
+                <li
+                  key={l.to}
+                  style={{ transitionDelay: open ? `${i * 55 + 150}ms` : "0ms" }}
+                >
+                  <a
+                    href={`#${l.to}`}
+                    onClick={handle(l.to)}
+                    className={path === l.to ? "is-active" : ""}
+                  >
+                    <span className="drawer__num">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="drawer__label">{l.label}</span>
+                    <span className="drawer__arrow" aria-hidden="true">→</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+
+          <div
+            className="drawer__cta"
+            style={{ transitionDelay: open ? `${links.length * 55 + 200}ms` : "0ms" }}
           >
-            <a href="#/contact" onClick={handle("/contact")}>
-              <span className="nav__drawer-num">
-                {String(links.length + 1).padStart(2, "0")}
-              </span>
-              <span className="nav__drawer-jp">お問い合わせ</span>
-              <span className="nav__drawer-en">Contact</span>
+            <div className="drawer__cta-body">
+              <span className="drawer__cta-eyebrow">お問い合わせ</span>
+              <p>書道文化について、お気軽にご相談ください。</p>
+            </div>
+            <a
+              href="#/contact"
+              onClick={handle("/contact")}
+              className="drawer__cta-btn"
+            >
+              問い合わせる
+              <span aria-hidden="true">→</span>
             </a>
-          </li>
-        </ol>
+          </div>
+
+          <div className="drawer__foot">
+            <ul className="drawer__legal">
+              {legalLinks.map((l) => (
+                <li key={l.to}>
+                  <a href={`#${l.to}`} onClick={handle(l.to)}>
+                    {l.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <div className="drawer__copy">© 2026 書道文化</div>
+          </div>
+        </div>
       </div>
 
       {open && (
